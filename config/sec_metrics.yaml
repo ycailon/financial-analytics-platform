@@ -1,0 +1,68 @@
+metrics:
+  revenue:
+    metric_key: 1
+    metric_name: Revenue
+    category: Income Statement
+    unit: USD
+    period_type: duration
+    concepts:
+      - RevenueFromContractWithCustomerExcludingAssessedTax
+      - Revenues
+      - SalesRevenueNet
+  operating_income:
+    metric_key: 2
+    metric_name: Operating Income
+    category: Income Statement
+    unit: USD
+    period_type: duration
+    concepts:
+      - OperatingIncomeLoss
+  net_income:
+    metric_key: 3
+    metric_name: Net Income
+    category: Income Statement
+    unit: USD
+    period_type: duration
+    concepts:
+      - NetIncomeLoss
+  operating_cash_flow:
+    metric_key: 4
+    metric_name: Operating Cash Flow
+    category: Cash Flow
+    unit: USD
+    period_type: duration
+    concepts:
+      - NetCashProvidedByUsedInOperatingActivities
+  capex:
+    metric_key: 5
+    metric_name: Capital Expenditure
+    category: Cash Flow
+    unit: USD
+    period_type: duration
+    concepts:
+      - PaymentsToAcquirePropertyPlantAndEquipment
+  assets:
+    metric_key: 6
+    metric_name: Total Assets
+    category: Balance Sheet
+    unit: USD
+    period_type: instant
+    concepts:
+      - Assets
+  liabilities:
+    metric_key: 7
+    metric_name: Total Liabilities
+    category: Balance Sheet
+    unit: USD
+    period_type: instant
+    concepts:
+      - Liabilities
+  equity:
+    metric_key: 8
+    metric_name: Stockholders' Equity
+    category: Balance Sheet
+    unit: USD
+    period_type: instant
+    concepts:
+      - StockholdersEquity
+      - StockholdersEquityIncludingPortionAttributableToNoncontrollingInterest

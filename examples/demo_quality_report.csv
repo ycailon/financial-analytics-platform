@@ -1,0 +1,21 @@
+check,status,detail
+financial_fact_primary_key_unique,PASS,duplicate rows: 0
+financial_values_not_null,PASS,null values: 0
+coverage_AAPL_revenue,PASS,complete
+coverage_AAPL_net_income,PASS,complete
+coverage_AAPL_assets,PASS,complete
+coverage_MSFT_revenue,PASS,complete
+coverage_MSFT_net_income,PASS,complete
+coverage_MSFT_assets,PASS,complete
+coverage_GOOGL_revenue,PASS,complete
+coverage_GOOGL_net_income,PASS,complete
+coverage_GOOGL_assets,PASS,complete
+coverage_AMZN_revenue,PASS,complete
+coverage_AMZN_net_income,PASS,complete
+coverage_AMZN_assets,PASS,complete
+coverage_META_revenue,PASS,complete
+coverage_META_net_income,PASS,complete
+coverage_META_assets,PASS,complete
+coverage_NVDA_revenue,PASS,complete
+coverage_NVDA_net_income,PASS,complete
+coverage_NVDA_assets,PASS,complete

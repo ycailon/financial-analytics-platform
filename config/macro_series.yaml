@@ -1,0 +1,13 @@
+series:
+  - series_key: 1
+    series_id: CUUR0000SA0
+    series_code: cpi_u
+    series_name: CPI-U, U.S. city average, All items
+    unit: Index (1982-84=100)
+    frequency: Monthly
+  - series_key: 2
+    series_id: LNS14000000
+    series_code: unemployment_rate
+    series_name: Civilian Unemployment Rate
+    unit: Percent
+    frequency: Monthly

@@ -1,0 +1,90 @@
+Revenue :=
+CALCULATE(
+    SUM('fact_financial_metric'[value]),
+    'dim_metric'[metric_code] = "revenue"
+)
+
+Operating Income :=
+CALCULATE(
+    SUM('fact_financial_metric'[value]),
+    'dim_metric'[metric_code] = "operating_income"
+)
+
+Net Income :=
+CALCULATE(
+    SUM('fact_financial_metric'[value]),
+    'dim_metric'[metric_code] = "net_income"
+)
+
+Operating Cash Flow :=
+CALCULATE(
+    SUM('fact_financial_metric'[value]),
+    'dim_metric'[metric_code] = "operating_cash_flow"
+)
+
+Capital Expenditure :=
+CALCULATE(
+    SUM('fact_financial_metric'[value]),
+    'dim_metric'[metric_code] = "capex"
+)
+
+Assets :=
+CALCULATE(
+    SUM('fact_financial_metric'[value]),
+    'dim_metric'[metric_code] = "assets"
+)
+
+Liabilities :=
+CALCULATE(
+    SUM('fact_financial_metric'[value]),
+    'dim_metric'[metric_code] = "liabilities"
+)
+
+Equity :=
+CALCULATE(
+    SUM('fact_financial_metric'[value]),
+    'dim_metric'[metric_code] = "equity"
+)
+
+Profit Margin % := DIVIDE([Net Income], [Revenue])
+Operating Margin % := DIVIDE([Operating Income], [Revenue])
+Debt to Assets % := DIVIDE([Liabilities], [Assets])
+Return on Assets % := DIVIDE([Net Income], [Assets])
+Return on Equity % := DIVIDE([Net Income], [Equity])
+
+Revenue YoY % :=
+VAR CurrentFiscalYear = MAX('fact_financial_metric'[fiscal_year])
+VAR PriorRevenue =
+    CALCULATE(
+        [Revenue],
+        REMOVEFILTERS('fact_financial_metric'[fiscal_year]),
+        'fact_financial_metric'[fiscal_year] = CurrentFiscalYear - 1
+    )
+RETURN DIVIDE([Revenue] - PriorRevenue, PriorRevenue)
+
+Net Income YoY % :=
+VAR CurrentFiscalYear = MAX('fact_financial_metric'[fiscal_year])
+VAR PriorNetIncome =
+    CALCULATE(
+        [Net Income],
+        REMOVEFILTERS('fact_financial_metric'[fiscal_year]),
+        'fact_financial_metric'[fiscal_year] = CurrentFiscalYear - 1
+    )
+RETURN DIVIDE([Net Income] - PriorNetIncome, PriorNetIncome)
+
+CPI-U :=
+CALCULATE(
+    AVERAGE('fact_macro_indicator'[value]),
+    'dim_macro_series'[series_code] = "cpi_u"
+)
+
+Unemployment Rate % :=
+CALCULATE(
+    AVERAGE('fact_macro_indicator'[value]),
+    'dim_macro_series'[series_code] = "unemployment_rate"
+)
+
+Inflation YoY % :=
+VAR PriorYearCPI =
+    CALCULATE([CPI-U], DATEADD('dim_date'[date], -1, YEAR))
+RETURN DIVIDE([CPI-U] - PriorYearCPI, PriorYearCPI)

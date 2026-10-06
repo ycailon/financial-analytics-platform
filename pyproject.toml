@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "financial-analytics-platform"
+version = "0.1.0"
+description = "SEC + BLS financial analytics pipeline with a local SQL warehouse and Power BI-ready exports."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "pandas>=2.2,<3.0",
+    "requests>=2.32,<3.0",
+    "PyYAML>=6.0,<7.0",
+    "typer>=0.12,<1.0",
+    "rich>=13.7,<15.0",
+    "python-dotenv>=1.0,<2.0"
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.2,<10.0",
+    "ruff>=0.6,<1.0"
+]
+
+[project.scripts]
+financial-analytics = "financial_analytics.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"

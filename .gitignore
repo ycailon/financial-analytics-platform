@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Generated data
+/data/raw/
+/data/warehouse/
+/output/
+*.db
+*.sqlite
+*.sqlite3
+
+# Power BI local/cache files
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Local environment
+.env
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
